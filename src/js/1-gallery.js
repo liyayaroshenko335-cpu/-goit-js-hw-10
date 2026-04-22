@@ -68,26 +68,28 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector('.gallery');
+const galleryContainer = document.querySelector('.gallery');
 
-// 1. Створюємо всю розмітку одним рядком
-const markup = images
-  .map(
-    ({ small, large, alt }) =>
-      `<li class="gallery-item">
-      <a class="gallery-link" href="${large}">
-        <img class="gallery-image" src="${small}" alt="${alt}" />
+const galleryMarkup = images
+  .map(({ preview, original, description }) => {
+    return `
+    <li class="gallery-item">
+      <a class="gallery-link" href="${original}">
+        <img
+          class="gallery-image"
+          src="${preview}"
+          alt="${description}"
+        />
       </a>
-    </li>`
-  )
+    </li>`;
+  })
   .join('');
 
-// 2. Додаємо в DOM за ОДНУ операцію
-gallery.innerHTML = markup;
+galleryContainer.innerHTML = galleryMarkup;
 
-// 3. Ініціалізація SimpleLightbox
-// event.preventDefault() додавати вручну не треба — бібліотека робить це сама
+// Ініціалізація SimpleLightbox
 new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
+

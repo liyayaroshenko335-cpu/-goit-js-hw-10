@@ -80,4 +80,80 @@
   opacity: 0.8 !important; /* Рівень прозорості (від 0 до 1) */
 }
 
+/* Контейнер для центрування форми на сторінці */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+/* Стилізація самої форми */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 408px;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилізація текстових міток (label) */
+.feedback-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+/* Стилізація полів введення та текстової області */
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  outline: transparent;
+  font-size: 16px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Зміна кольору рамки при фокусі */
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  border-color: #4e75ff;
+}
+
+/* Фіксована висота для поля повідомлення */
+.feedback-form textarea {
+  height: 80px;
+  resize: none; /* Забороняємо ручну зміну розміру */
+}
+
+/* Стилізація кнопки */
+.feedback-form button {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #4e75ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ефект наведення на кнопку */
+.feedback-form button:hover {
+  background-color: #6c8cff;
+}
+
 
