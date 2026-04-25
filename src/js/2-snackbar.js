@@ -1,41 +1,43 @@
-console.log("Form");
-const formData = { email: '', message: '' };
-const form = document.querySelector('.feedback-form');
-const localStorageKey = 'feedback-form-state';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-// 1. Заповнення полів із сховища при завантаженні сторінки
-const savedData = localStorage.getItem(localStorageKey);
-if (savedData) {
-  const parsedData = JSON.parse(savedData);
-  // Оновлюємо і об'єкт, і поля форми
-  formData.email = parsedData.email || '';
-  formData.message = parsedData.message || '';
+const form = document.querySelector('.form');
 
-  form.elements.email.value = formData.email;
-  form.elements.message.value = formData.message;
-}
-
-// 2. Відстеження введення даних (Делегування на рівні форми)
-form.addEventListener('input', event => {
-  formData[event.target.name] = event.target.value.trim();
-  localStorage.setItem(localStorageKey, JSON.stringify(formData));
-});
-
-// 3. Обробка відправки форми
 form.addEventListener('submit', event => {
   event.preventDefault();
 
-  // Перевірка на заповненість полів
-  if (formData.email === '' || formData.message === '') {
-    alert('Fill please all fields');
-    return;
-  }
+  // Отримуємо значення з форми
+  const delay = Number(form.elements.delay.value);
+  const state = form.elements.state.value;
 
-  // Вивід результату, очищення сховища та форми
-  console.log(formData);
+  // Створюємо та обробляємо проміс
+  createPromise(delay, state)
+    .then(delay => {
+      iziToast.success({
+        message: `✅ Fulfilled promise in ${delay}ms`,
+        position: 'topRight',
+      });
+    })
+    .catch(delay => {
+      iziToast.error({
+        message: `❌ Rejected promise in ${delay}ms`,
+        position: 'topRight',
+      });
+    });
 
-  localStorage.removeItem(localStorageKey);
-  formData.email = '';
-  formData.message = '';
+  // Очищаємо форму після сабміту
   form.reset();
 });
+
+// Функція-генератор промісу
+function createPromise(delay, state) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (state === 'fulfilled') {
+        resolve(delay);
+      } else {
+        reject(delay);
+      }
+    }, delay);
+  });
+}
