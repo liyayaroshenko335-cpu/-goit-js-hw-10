@@ -1,44 +1,21 @@
-<!doctype html>
+<<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snackbar</title>
-    <script
-      type="module"
-      crossorigin
-      src="/goit-js-hw-10/2-snackbar.js"
-    ></script>
-    <link
-      rel="modulepreload"
-      crossorigin
-      href="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js"
-    />
-    <link
-      rel="modulepreload"
-      crossorigin
-      href="/goit-js-hw-10/assets/vendor-BbbuE1sJ.js"
-    />
-    <link
-      rel="stylesheet"
-      crossorigin
-      href="/goit-js-hw-10/assets/vendor-CZjNVMTf.css"
-    />
-    <link
-      rel="stylesheet"
-      crossorigin
-      href="/goit-js-hw-10/assets/styles-DQ-16GMc.css"
-    />
+    <!-- Залиш тільки цей лінк на свої стилі -->
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <main>
       <form class="form">
+        <!-- Твій код форми залишається без змін -->
         <label>
           Delay (ms)
           <input type="number" name="delay" required />
         </label>
-
         <fieldset>
           <legend>State</legend>
           <label>
@@ -50,10 +27,11 @@
             Rejected
           </label>
         </fieldset>
-
         <button type="submit">Create notification</button>
       </form>
     </main>
+
+    <!-- Тільки ОДИН підпис скрипта в самому низу -->
     <script type="module" src="./js/2-snackbar.js"></script>
   </body>
 </html>
