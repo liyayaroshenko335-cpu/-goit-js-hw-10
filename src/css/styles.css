@@ -16,144 +16,61 @@
 @import url('./badges.css');
 @import url('./back-link.css');
 
-/* 1. Налаштування контейнера-сітки */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 24px; /* Відступ між колонками */
-  row-gap: 24px;    /* Відступ між рядками */
-  list-style: none; /* Прибираємо крапки списку */
-  padding: 24px;
-  margin: 0 auto;
-  max-width: 1152px; /* Ширина 3-х колонок по 360px + 2 відступи по 24px */
-  justify-content: center;
-}
-
-/* 2. Налаштування кожного елемента галереї */
-.gallery-item {
-  /* Розрахунок ширини: (100% - сума відступів) / кількість колонок */
-  flex-basis: calc((100% - 48px) / 3);
-}
-
-/* 3. Стилізація посилань (контейнерів для SimpleLightbox) */
-.gallery-link {
-  display: block;
-  text-decoration: none;
-  cursor: zoom-in;
-}
-
-/* 4. Оформлення зображень */
-.gallery-image {
-  display: block;
-  width: 100%;
-  height: 200px;
-  object-fit: cover; /* Фото не розтягується, а акуратно вписується */
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* 5. Ефект при наведенні */
-.gallery-image:hover {
-  transform: scale(1.03); /* Легке збільшення для інтерактивності */
-}
-
-/* Стилізація фону та тексту підпису */
-.sl-wrapper .sl-caption {
-  background: rgba(46, 47, 66, 0.8); /* Темно-синій напівпрозорий фон (GoIT style) */
-  color: #f4f4fd; /* Дуже світлий текст */
-  font-family: 'Montserrat', sans-serif;
+/* Стилізація інпуту та кнопки */
+#datetime-picker {
+  padding: 8px;
   font-size: 16px;
-  line-height: 1.5;
-  text-align: center;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  outline: none;
+}
+
+button[data-start] {
   padding: 8px 16px;
+  font-size: 16px;
+  background-color: #4e75ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* Налаштування анімації підпису (за бажанням) */
-.sl-caption.pos-bottom {
-  bottom: 0;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+button[data-start]:disabled {
+  background-color: #cfcfcf;
+  color: #989898;
+  cursor: not-allowed;
 }
 
-/* Зміна кольору та прозорості фону */
-.sl-overlay {
-  background: #2e2f42; /* Твій темно-синій бренд-колір */
-  opacity: 0.8 !important; /* Рівень прозорості (від 0 до 1) */
+/* Контейнер таймера */
+.timer {
+  display: flex;
+  gap: 24px;
+  margin-top: 32px;
 }
 
-/* Контейнер для центрування форми на сторінці */
-.container {
+/* Кожне поле (число + підпис) */
+.field {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px;
 }
 
-/* Стилізація самої форми */
-.feedback-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 408px;
-  padding: 24px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Стилізація текстових міток (label) */
-.feedback-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
+/* Стиль великих цифр */
+.value {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
   color: #2e2f42;
 }
 
-/* Стилізація полів введення та текстової області */
-.feedback-form input,
-.feedback-form textarea {
-  width: 100%;
-  padding: 8px 16px;
-  border: 1px solid #808080;
-  border-radius: 4px;
-  outline: transparent;
-  font-size: 16px;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+/* Стиль текстових підписів */
+.label {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: #2e2f42;
 }
 
-/* Зміна кольору рамки при фокусі */
-.feedback-form input:focus,
-.feedback-form textarea:focus {
-  border-color: #4e75ff;
-}
-
-/* Фіксована висота для поля повідомлення */
-.feedback-form textarea {
-  height: 80px;
-  resize: none; /* Забороняємо ручну зміну розміру */
-}
-
-/* Стилізація кнопки */
-.feedback-form button {
-  width: 100%;
-  padding: 8px 16px;
-  background-color: #4e75ff;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Ефект наведення на кнопку */
-.feedback-form button:hover {
-  background-color: #6c8cff;
-}
 
 
