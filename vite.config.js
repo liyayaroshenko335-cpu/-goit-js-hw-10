@@ -46,3 +46,11 @@ export default defineConfig(({ command }) => {
     ],
   };
 });
+
+
+
+export default defineConfig({
+  base: '/goit-js-hw-10/', // Обов'язково замініть на назву ВЛАСНОГО репозиторію
+  // ...інші налаштування (наприклад, injectHTML)
+});
+
