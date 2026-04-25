@@ -2,9 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Видалив старий href і замінив на відносний шлях -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Homework 10</title>
+    
+    <!-- Підключаємо ТІЛЬКИ твій файл стилів -->
     <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-DQ-16GMc.css">
   </head>
   <body>
@@ -13,19 +16,18 @@
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item">
-              <a class="nav-link {=$highlight-act}" href="./1-timer.html"
-                >Timer</a
-              >
+              <!-- Прибираємо складні конструкції, якщо не використовуємо змінні -->
+              <a class="nav-link" href="./1-timer.html">Timer</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {=$highlight-curr}" href="./2-snackbar.html"
-                >Snackbar</a
-              >
+              <a class="nav-link" href="./2-snackbar.html">Snackbar</a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
-    <main></main>
+    <main>
+      <h1 style="text-align: center; margin-top: 50px;">Welcome to Homework 10</h1>
+    </main>
   </body>
 </html>
